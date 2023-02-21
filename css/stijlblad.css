@@ -1,0 +1,263 @@
+/** Als er twee schermen moeten gemaakt worden vertrekken we steeds van de mobile versie **/
+/** Nadien veranderen we de waarden voor een desktop versie via een @media query **/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  /** Primary (hoofdkleur) **/
+  --hk-rood: hsl(0, 100%, 74%);
+  --hk-groen: hsl(154, 59%, 51%);
+
+  /** Accent (accent kleur) **/
+  --ak-blauw: hsl(248, 32%, 49%);
+
+  /** Neutral (neutraal kleur) **/
+  --nk-donkerblauw: hsl(249, 10%, 26%);
+  --nk-grijsblauw: hsl(246, 25%, 77%);
+
+  /** Overal dezelfde border-radius**/
+  --border-radius: 10px;
+}
+
+/** Dit is de Josh Comeau reset **/
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  /* border: 1px red solid; */
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /** 16px = 1rem **/
+  font-size: 1rem;
+  background-image: url(../images/bg-intro-mobile.png);
+  background-color: var(--hk-rood);
+  /** Nieuwe manier van centreren **/
+  display: grid;
+  place-content: center;
+  /* margin: 1rem; */
+}
+
+main {
+  /** Om twee helften te hebben in het midden van het scherm gebruiken we grid **/
+  display: grid;
+  max-width: 900px;
+}
+
+/** De children moeten dan een width van 100% en een display grid hebben **/
+.linkerkant {
+  color: white;
+}
+/** De children moeten dan een width van 100% en een display grid hebben **/
+.rechterkant {
+  color: white;
+}
+.titel {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+}
+.tekst {
+  padding: 1rem 1rem;
+  text-align: center;
+  line-height: 1.75rem;
+  margin-bottom: 3rem;
+}
+.banner {
+  line-height: 1.5rem;
+  text-align: center;
+  background-color: var(--ak-blauw);
+  box-shadow: 0px 6px 8px #888888;
+  color: white;
+  padding: 1rem 4rem;
+  margin: 0.5rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+.bold {
+  font-weight: 600;
+}
+form {
+  margin: 0.5rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0px 6px 8px #888888;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+}
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  padding: 1rem;
+  font-weight: 600;
+  font-size: smaller;
+  border-radius: var(--border-radius);
+  border: 1px solid lightgray;
+}
+form div {
+  position: relative;
+}
+.icon {
+  position: absolute;
+  right: 5%;
+  top: 25%;
+  width: 24px;
+  height: 24px;
+}
+form span {
+  color: var(--hk-rood);
+  text-align: right;
+  font-size: smaller;
+}
+button {
+  width: 100%;
+  background-color: var(--hk-groen);
+  color: white;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  width: 90%;
+}
+
+.kleineLetters {
+  color: var(--nk-grijsblauw);
+  text-align: center;
+  font-size: xx-small;
+}
+.rood {
+  color: var(--hk-rood);
+  font-weight: 600;
+}
+form > div > span,
+.icon {
+  visibility: hidden;
+}
+
+/** Eigenlijk maken we twee pagina's, één voor mobile en een tweede voor desktop **/
+/** Dit gedeelte is voor de desktopversie                                        **/
+@media only screen and (min-width: 900px) {
+  body {
+    background-image: url(../images/bg-intro-desktop.png);
+  }
+  /** Als we het scherm willen delen in twee gelijke helften hebben we een parent nodig en 2 children **/
+  /** Op deze pagina is onze parent <main> en de children zijn <linkerkant> en <rechterkant>          **/
+  main {
+    max-width: 1440px;
+    max-height: 800px;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 7%;
+  }
+  /** De children moeten dan een width van 100% en een display grid hebben **/
+  .linkerkant {
+    display: grid;
+    grid-gap: 0.5rem;
+    width: 100%;
+  }
+  .titel {
+    text-align: left;
+    font-weight: 700;
+    font-size: 3rem;
+    align-self: end;
+  }
+  .tekst {
+    padding: 0rem 2rem;
+    margin-bottom: 0;
+    text-align: left;
+    line-height: 1.75rem;
+  }
+  /** De children moeten dan een width van 100% en een display grid hebben **/
+  .rechterkant {
+    display: grid;
+    width: 100%;
+    padding-right: 2rem;
+  }
+  form {
+    padding-top: 2.5rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  input[type="text"] {
+    width: 30rem;
+  }
+  button {
+    padding: 1.2rem;
+  }
+  .kleineLetters {
+    font-size: x-small;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}

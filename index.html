@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./css/stijlblad.css" type="text/css" />
+    <title>Frontend Mentor | Intro component with sign up form</title>
+  </head>
+  <body>
+    <main>
+      <div class="linkerkant">
+        <div class="titel">Learn to code by watching others</div>
+        <div class="tekst">
+          See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding
+          how developers think is invaluable.
+        </div>
+      </div>
+      <div class="rechterkant">
+        <div class="banner"><span class="bold">Try it free 7 days</span> then $20/mo. thereafter</div>
+        <form action="#" id="form">
+          <div>
+            <input type="text" placeholder="First Name" id="fname" />
+            <img src="./images/icon-error.svg" class="icon" alt="error-icon" />
+            <span id="spanFname"><em>First Name can not be empty</em></span>
+          </div>
+          <div>
+            <input type="text" placeholder="Last Name" id="lname" />
+            <img src="./images/icon-error.svg" class="icon" alt="error-icon" />
+            <span id="spanLname"><em>Last Name can not be empty</em></span>
+          </div>
+          <div>
+            <input type="text" placeholder="Email Address" id="email" />
+            <img src="./images/icon-error.svg" class="icon" alt="error-icon" />
+            <span id="spanEmail"><em>Looks like this is not an email</em></span>
+          </div>
+          <div>
+            <input type="text" placeholder="Password" id="password" />
+            <img src="./images/icon-error.svg" class="icon" alt="error-icon" />
+            <span id="spanPassword"><em>Password can not be empty</em></span>
+          </div>
+          <button>Claim your free trial</button>
+          <p class="kleineLetters">
+            By clicking the button, you are agreeing to our <span class="rood">Terms and Services</span>
+          </p>
+        </form>
+      </div>
+    </main>
+    <script src="./scripts/intro_component.js" type="text/javascript"></script>
+  </body>
+</html>
